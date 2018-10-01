@@ -7,13 +7,8 @@ events.on("push", function(e, project) {
 })
 
 events.on("pull_request", function(e, project) {
-  console.log("debug: event:")
-  console.log(e)
-  console.log("received pull_request with commit " + e.revision.commit)
-
   var parsedPayload = JSON.parse(e.payload)
-  console.log("parsed payload: " + parsedPayload)
-  console.log("pull request url is: " + parsedPayload.pull_request.url)
+  console.log("received a pull request event with the url " + parsedPayload.pull_request.url)
 
   run_tests()
 })
